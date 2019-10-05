@@ -12,6 +12,13 @@ naive = {'male': NaiveBayes("male_data_0.csv"), 'female': NaiveBayes("female_dat
 model01 = ModelLoader("best_model_01.joblib")
 
 
+@app.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
+
+
 @app.route('/predict', methods=['POST'])
 def hello():
     print('Request {} {}'.format(request.values, request.get_json()))
