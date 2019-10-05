@@ -1,4 +1,7 @@
-flask
-gevent
-sklearn
-pandas
+flask==1.1.1
+gevent==1.4.0
+sklearn==0.21.3
+pandas==0.25.1
+joblib==0.13.2
+category_encoders==2.1.0
+xgboost==0.90

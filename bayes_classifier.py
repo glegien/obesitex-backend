@@ -12,4 +12,4 @@ class NaiveBayes(object):
         self.classifier.fit(features, target)
 
     def predict(self, value):
-        return self.classifier.predict(np.array([value]).reshape(1, 1))[0]
+        return {'prediction': self.classifier.predict(np.array([value]).reshape(1, 1))[0] }
