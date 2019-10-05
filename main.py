@@ -15,16 +15,16 @@ model01 = ModelLoader("best_model_01.joblib")
 @app.route('/predict', methods=['POST'])
 def hello():
     print('Request {} {}'.format(request.values, request.get_json()))
-    sex = request.values.get('sex')
-    model = request.values.get('model')
+    sex = request.get_json()['sex']
+    model = request.get_json()['model']
     if not model or not sex:
         raise Exception('Param undefined!')
     if model == 'naive':
         classifier = naive[sex]
-        age = request.values.get('age')
+        age = request.get_json()['age']
         if not age:
             raise Exception('Age param undefined!')
-        print('Age: ' + age)
+        print('Age: ' + str(age))
         prediction = str(classifier.predict(int(age)))
         print('Result: ' + prediction)
         return prediction
@@ -48,5 +48,5 @@ def hello():
 
 
 if __name__ == '__main__':
-    http_server = WSGIServer(('', 5000), app)
+    http_server = WSGIServer(('', 8081), app)
     http_server.serve_forever()
