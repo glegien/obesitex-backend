@@ -18,7 +18,7 @@ model02 = {
     'female': Regression('data/female_data_0.csv')
 }
 model03 = {
-    'male': ModelLoader('models/male_model_10_05_2019.joblib'),
+    'male': ModelLoader('models/best_model_10_05_2019_22_13_28.joblib'),
    # 'female': ModelLoader('models/')
 }
 
