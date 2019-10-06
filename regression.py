@@ -1,4 +1,4 @@
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 import pandas as pd
 import numpy as np
 from sklearn.compose import ColumnTransformer
@@ -19,9 +19,9 @@ class Regression(object):
         ])
 
         pipe = Pipeline([('preprocessor', preprocessor),
-                         ('model', LinearRegression())])
+                         ('model', LogisticRegression())])
         self.classifier = pipe.fit(data_set, target)
-        print('Regression score for ' + file_ + ' : ' + str(self.classifier.score(data_set, target)))
+        print('LogisticRegression score(accuracy) for ' + file_ + ' : ' + str(self.classifier.score(data_set, target)))
 
     def predict(self, input):
         y = self.classifier.predict(input)

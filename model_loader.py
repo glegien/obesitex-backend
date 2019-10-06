@@ -8,5 +8,5 @@ class ModelLoader(object):
 
     def predict(self, input):
         prediction_value = self.clf.predict(input)[0]
-        probability = self.clf.predict_proba(input)[0]
+        probability = self.clf.predict_proba(input)
         return '{"prediction":' + str(prediction_value) + ', "probability":' + str(probability[0]) + "}"

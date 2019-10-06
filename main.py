@@ -17,6 +17,10 @@ model02 = {
     'male': Regression('data/male_data_0.csv'),
     'female': Regression('data/female_data_0.csv')
 }
+model03 = {
+    'male': ModelLoader('models/male_model_10_05_2019.joblib'),
+   # 'female': ModelLoader('models/')
+}
 
 
 @app.after_request
@@ -54,6 +58,9 @@ def hello():
             return ml_model.predict(input)
         if model == 'model02':
             ml_model = model02[sex]
+            return ml_model.predict(input)
+        if model == 'model03':
+            ml_model = model03[sex]
             return ml_model.predict(input)
     return '{"error":"Ignored..."}'
 
