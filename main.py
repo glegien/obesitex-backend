@@ -16,6 +16,7 @@ model01 = ModelLoader("best_model_01.joblib")
 def after_request(response):
     header = response.headers
     header['Access-Control-Allow-Origin'] = '*'
+    header['Access-Control-Allow-Headers'] = 'access-control-allow-origin'
     return response
 
 
