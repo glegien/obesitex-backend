@@ -5,3 +5,4 @@ pandas==0.25.1
 joblib==0.13.2
 category_encoders==2.1.0
 xgboost==0.90
+gunicorn==19.9.0
