@@ -18,6 +18,7 @@ model02 = Regression("female_data_0.csv")
 def after_request(response):
     header = response.headers
     header['Access-Control-Allow-Origin'] = '*'
+    header['Access-Control-Allow-Headers'] = 'access-control-allow-origin'
     return response
 
 
